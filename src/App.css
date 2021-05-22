@@ -1,0 +1,40 @@
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkIn {
+  width: 100%;
+  height: 80%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.2s;
+}
+
+.checkIns {
+  width: 100%;
+  height: 20%;
+  background-color: blue;
+  overflow-y: auto;
+  transition: height 0.2s;
+}
+
+.app[data-check-ins-open="false"] .checkIn {
+  height: 100%;
+}
+
+.app[data-check-ins-open="false"] .checkIns {
+  height: 0%;
+}
+
+.app[data-check-ins-open="true"] .checkIn {
+  height: 240px;
+}
+
+.app[data-check-ins-open="true"] .checkIns {
+  height: calc(100% - 240px);
+}
