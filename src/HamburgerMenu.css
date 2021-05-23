@@ -1,0 +1,52 @@
+.hamburgerMenu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.hamburgerMenu > div {
+  position: absolute;
+  width: 80%;
+  height: 10%;
+  background-color: black;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.app[data-dark-mode="true"] .hamburgerMenu > div {
+  background-color: white;
+}
+
+.hamburgerMenu > div:nth-child(1) {
+  transform: translateY(-200%) rotate(0);
+}
+
+.hamburgerMenu > div:nth-child(2) {
+  opacity: 1;
+  transform: rotate(0);
+}
+
+.hamburgerMenu > div:nth-child(3) {
+  transform: translateY(200%) rotate(0);
+}
+
+.hamburgerMenu[data-settings-open="true"] > div:nth-child(1) {
+  transform: translateY(0) rotate(135deg);
+}
+
+.hamburgerMenu[data-settings-open="true"] > div:nth-child(2) {
+  transform: rotate(180deg);
+  opacity: 0;
+}
+
+.hamburgerMenu[data-settings-open="true"] > div:nth-child(3) {
+  transform: translateY(0) rotate(405deg);
+}

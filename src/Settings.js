@@ -1,4 +1,5 @@
 import useSettingsToggle from "./useSettingsToggle";
+import HamburgerMenu from "./HamburgerMenu";
 import locale from "./locale";
 
 import "./Settings.css";
@@ -8,15 +9,7 @@ const Settings = ({ isDarkModeOn, onToggleDarkMode }) => {
 
   return (
     <>
-      <button
-        className="hamburgerMenu"
-        data-settings-open={isSettingsOpen}
-        onClick={onToggleSettings}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </button>
+      <HamburgerMenu isOpen={isSettingsOpen} onClick={onToggleSettings} />
       <div className="settingsOverlay" data-visible={isSettingsOpen}></div>
       <div className="settings" data-open={isSettingsOpen}>
         <h2>{locale.settings()}</h2>
