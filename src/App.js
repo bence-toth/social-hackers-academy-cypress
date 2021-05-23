@@ -8,8 +8,6 @@ import Settings from "./Settings";
 import "./App.css";
 
 // TODO: Add unit tests:
-// TODO: Test that CheckIn component calls onAddCheckIn with correct value
-// TODO: Test that CheckIn component calls onToggleCheckIns
 // TODO: Test that CheckIns component shows no check-ins message
 // TODO: Test that CheckIns component renders average check-ins and lists check-ins
 // TODO: Test that average utility works as expected
