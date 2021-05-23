@@ -2,8 +2,8 @@ import useSettingsToggle from "./useSettingsToggle";
 import useDarkMode from "./useDarkMode";
 import useCheckInsToggle from "./useCheckInsToggle";
 import useCheckIns from "./useCheckIns";
-import { getAverageMoodDuringPastWeek } from "./utility";
 import CheckIn from "./CheckIn";
+import CheckIns from "./CheckIns";
 import locale from "./locale";
 
 import "./App.css";
@@ -25,31 +25,7 @@ const App = () => {
         areCheckInsVisible={areCheckInsVisible}
         onToggleCheckIns={onToggleCheckIns}
       />
-      <div className="checkIns">
-        {checkIns.length === 0 && <p>{locale.noCheckInsYet()}</p>}
-        {checkIns.length > 0 && (
-          <>
-            <p className="averageMoodIndicator">
-              {locale.averageMood(
-                getAverageMoodDuringPastWeek({
-                  checkIns,
-                  averageAfter: Date.now(),
-                })
-              )}
-            </p>
-            <ul className="checkInsList">
-              {checkIns.map(({ time, value }) => (
-                <div key={time} className="checkInItem">
-                  <span className="date">
-                    {new Date(time).toLocaleDateString("en-gb")}
-                  </span>
-                  <span className="mood">{locale.mood(value)}</span>
-                </div>
-              ))}
-            </ul>
-          </>
-        )}
-      </div>
+      <CheckIns checkIns={checkIns} />
       <button
         className="hamburgerMenu"
         data-settings-open={isSettingsOpen}

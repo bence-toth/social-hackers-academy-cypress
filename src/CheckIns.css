@@ -1,0 +1,39 @@
+.checkIns {
+  width: 100%;
+  background-color: hsl(0, 0%, 95%);
+  overflow-y: auto;
+  transition: height 0.2s, padding 0.2s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app[data-dark-mode="true"] .checkIns {
+  background-color: hsl(0, 0%, 10%);
+}
+
+.app[data-check-ins-open="false"] .checkIns {
+  height: 0%;
+  padding: 0;
+}
+
+.app[data-check-ins-open="true"] .checkIns {
+  height: calc(100% - 380px);
+  padding: 20px 0;
+}
+
+.averageMoodIndicator {
+  margin-bottom: 20px;
+}
+
+.checkInsList {
+  list-style-type: none;
+}
+
+.checkInItem {
+  margin-bottom: 8px;
+}
+
+.checkInItem .date {
+  margin-right: 12px;
+}
