@@ -14,25 +14,6 @@
   margin: 12px 0;
 }
 
-.checkInButton {
-  width: 160px;
-  height: 80px;
-  font-size: 24px;
-  margin: 0 6px;
-  border: 0;
-  border-radius: 12px;
-  cursor: pointer;
-  background-color: hsl(0, 0%, 90%);
-}
-
-.app[data-dark-mode="true"] .checkInButton {
-  background-color: hsl(0, 0%, 20%);
-}
-
-.checkInButton .emoji {
-  font-size: 32px;
-}
-
 .toggleCheckIns {
   position: absolute;
   bottom: 20px;
