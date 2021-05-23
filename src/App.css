@@ -7,20 +7,52 @@
 .checkIn {
   width: 100%;
   height: 80%;
-  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: height 0.2s;
+  position: relative;
+}
+
+.howAreYouFeeling {
+  font-size: 20px;
+  margin: 12px 0;
+}
+
+.checkInButton {
+  width: 160px;
+  height: 80px;
+  font-size: 24px;
+  margin: 0 6px;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 90%);
+}
+
+.checkInButton .emoji {
+  font-size: 32px;
+}
+
+.toggleCheckIns {
+  position: absolute;
+  bottom: 20px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 0;
+  background-color: hsl(0, 0%, 90%);
 }
 
 .checkIns {
   width: 100%;
-  height: 20%;
-  background-color: blue;
+  background-color: hsl(0, 0%, 95%);
   overflow-y: auto;
-  transition: height 0.2s;
+  transition: height 0.2s, padding 0.2s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .app[data-check-ins-open="false"] .checkIn {
@@ -29,12 +61,151 @@
 
 .app[data-check-ins-open="false"] .checkIns {
   height: 0%;
+  padding: 0;
 }
 
 .app[data-check-ins-open="true"] .checkIn {
-  height: 240px;
+  height: 380px;
 }
 
 .app[data-check-ins-open="true"] .checkIns {
-  height: calc(100% - 240px);
+  height: calc(100% - 380px);
+  padding: 20px 0;
+}
+
+.averageMoodIndicator {
+  margin-bottom: 20px;
+}
+
+.checkInsList {
+  list-style-type: none;
+}
+
+.checkInItem {
+  margin-bottom: 8px;
+}
+
+.checkInItem .date {
+  margin-right: 12px;
+}
+
+.settings {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 400px;
+  transform: translateX(100%);
+  transition: transform 0.2s;
+  background-color: white;
+  z-index: 2;
+  padding: 20px;
+}
+
+.settings h2 {
+  margin-bottom: 20px;
+}
+
+.settings[data-open="true"] {
+  transform: translateX(0);
+}
+
+.settingsOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 50%);
+  transition: opacity 0.2s;
+  opacity: 1;
+  z-index: 1;
+}
+
+.settingsOverlay[data-visible="false"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px 12px 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.toggleButton .toggle {
+  width: 48px;
+  height: 24px;
+  background-color: black;
+  border-radius: 24px;
+  padding: 2px;
+  position: relative;
+}
+
+.toggleButton .toggle > div {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  transition: left 0.1s;
+}
+
+.toggleButton[data-on="true"] .toggle > div {
+  left: calc(100% - 22px);
+}
+
+.toggleButton .label {
+  margin-left: 12px;
+}
+
+.hamburgerMenu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.hamburgerMenu > div {
+  position: absolute;
+  width: 80%;
+  height: 10%;
+  background-color: black;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.hamburgerMenu > div:nth-child(1) {
+  transform: translateY(-200%) rotate(0);
+}
+
+.hamburgerMenu > div:nth-child(2) {
+  opacity: 1;
+  transform: rotate(0);
+}
+
+.hamburgerMenu > div:nth-child(3) {
+  transform: translateY(200%) rotate(0);
+}
+
+.hamburgerMenu[data-settings-open="true"] > div:nth-child(1) {
+  transform: translateY(0) rotate(135deg);
+}
+
+.hamburgerMenu[data-settings-open="true"] > div:nth-child(2) {
+  transform: rotate(180deg);
+  opacity: 0;
+}
+
+.hamburgerMenu[data-settings-open="true"] > div:nth-child(3) {
+  transform: translateY(0) rotate(405deg);
 }
