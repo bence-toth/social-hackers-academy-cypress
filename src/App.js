@@ -1,4 +1,8 @@
-import { useState } from "react";
+import useSettingsToggle from "./useSettingsToggle";
+import useDarkMode from "./useDarkMode";
+import useCheckInsToggle from "./useCheckInsToggle";
+import useCheckIns from "./useCheckIns";
+
 import "./App.css";
 
 const getCheckInValueText = (value) => {
@@ -32,31 +36,10 @@ const getAverageMoodDuringPastWeek = ({ checkIns, averageAfter }) => {
 };
 
 const App = () => {
-  const [areCheckInsVisible, setAreCheckInsVisible] = useState(false);
-  const onToggleCheckIns = () => {
-    setAreCheckInsVisible(!areCheckInsVisible);
-  };
-
-  const [checkIns, setCheckIns] = useState([]);
-  const addCheckIn = (value) => {
-    setCheckIns([
-      ...checkIns,
-      {
-        time: Date.now(),
-        value,
-      },
-    ]);
-  };
-
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const onToggleSettings = () => {
-    setIsSettingsOpen(!isSettingsOpen);
-  };
-
-  const [isDarkModeOn, setIsDarkModeOn] = useState(false);
-  const onToggleDarkMode = () => {
-    setIsDarkModeOn(!isDarkModeOn);
-  };
+  const { checkIns, onAddCheckIn } = useCheckIns();
+  const { areCheckInsVisible, onToggleCheckIns } = useCheckInsToggle();
+  const { isSettingsOpen, onToggleSettings } = useSettingsToggle();
+  const { isDarkModeOn, onToggleDarkMode } = useDarkMode();
 
   return (
     <div
@@ -68,23 +51,23 @@ const App = () => {
         <h1>Check in with yourself</h1>
         <p className="howAreYouFeeling">How are you feeling right now?</p>
         <div>
-          <button className="checkInButton" onClick={() => addCheckIn(1)}>
+          <button className="checkInButton" onClick={() => onAddCheckIn(1)}>
             <div className="emoji">😢</div>
             <div>{getCheckInValueText(1)}</div>
           </button>
-          <button className="checkInButton" onClick={() => addCheckIn(2)}>
+          <button className="checkInButton" onClick={() => onAddCheckIn(2)}>
             <div className="emoji">🙁</div>
             <div>{getCheckInValueText(2)}</div>
           </button>
-          <button className="checkInButton" onClick={() => addCheckIn(3)}>
+          <button className="checkInButton" onClick={() => onAddCheckIn(3)}>
             <div className="emoji">😐</div>
             <div>{getCheckInValueText(3)}</div>
           </button>
-          <button className="checkInButton" onClick={() => addCheckIn(4)}>
+          <button className="checkInButton" onClick={() => onAddCheckIn(4)}>
             <div className="emoji">😊</div>
             <div>{getCheckInValueText(4)}</div>
           </button>
-          <button className="checkInButton" onClick={() => addCheckIn(5)}>
+          <button className="checkInButton" onClick={() => onAddCheckIn(5)}>
             <div className="emoji">🤩</div>
             <div>{getCheckInValueText(5)}</div>
           </button>
