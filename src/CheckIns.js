@@ -19,9 +19,7 @@ const CheckIns = ({ checkIns }) => (
         <ul className="checkInsList">
           {checkIns.map(({ time, value }) => (
             <div key={time} className="checkInItem">
-              <span className="date">
-                {new Date(time).toLocaleDateString("en-gb")}
-              </span>
+              <span className="date">{locale.formattedDate(time)}</span>
               <span className="mood">{locale.mood(value)}</span>
             </div>
           ))}

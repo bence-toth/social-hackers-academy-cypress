@@ -26,6 +26,7 @@ const locale = {
   mood: getMood,
   settings: () => "Settings",
   darkMode: () => "Dark mode",
+  formattedDate: (time) => new Date(time).toLocaleDateString("en-gb"),
 };
 
 export default locale;
