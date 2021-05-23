@@ -2,12 +2,12 @@ import { useState } from "react";
 
 const useCheckIns = () => {
   const [checkIns, setCheckIns] = useState([]);
-  const onAddCheckIn = (value) => {
+  const onAddCheckIn = (mood) => {
     setCheckIns([
       ...checkIns,
       {
         time: Date.now(),
-        value,
+        mood,
       },
     ]);
   };
