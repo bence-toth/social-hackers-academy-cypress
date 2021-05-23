@@ -2,6 +2,13 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  color: hsl(0, 0%, 20%);
+}
+
+.app[data-dark-mode="true"] {
+  background-color: black;
+  color: hsl(0, 0%, 90%);
 }
 
 .checkIn {
@@ -31,6 +38,10 @@
   background-color: hsl(0, 0%, 90%);
 }
 
+.app[data-dark-mode="true"] .checkInButton {
+  background-color: hsl(0, 0%, 20%);
+}
+
 .checkInButton .emoji {
   font-size: 32px;
 }
@@ -45,6 +56,10 @@
   background-color: hsl(0, 0%, 90%);
 }
 
+.app[data-dark-mode="true"] .toggleCheckIns {
+  background-color: hsl(0, 0%, 20%);
+}
+
 .checkIns {
   width: 100%;
   background-color: hsl(0, 0%, 95%);
@@ -53,6 +68,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.app[data-dark-mode="true"] .checkIns {
+  background-color: hsl(0, 0%, 10%);
 }
 
 .app[data-check-ins-open="false"] .checkIn {
@@ -102,6 +121,10 @@
   padding: 20px;
 }
 
+.app[data-dark-mode="true"] .settings {
+  background-color: black;
+}
+
 .settings h2 {
   margin-bottom: 20px;
 }
@@ -118,6 +141,10 @@
   transition: opacity 0.2s;
   opacity: 1;
   z-index: 1;
+}
+
+.app[data-dark-mode="true"] .settingsOverlay {
+  background-color: hsla(0, 0%, 100%, 20%);
 }
 
 .settingsOverlay[data-visible="false"] {
@@ -143,6 +170,10 @@
   position: relative;
 }
 
+.app[data-dark-mode="true"] .toggleButton .toggle {
+  background-color: white;
+}
+
 .toggleButton .toggle > div {
   width: 20px;
   height: 20px;
@@ -151,6 +182,10 @@
   position: absolute;
   left: 2px;
   transition: left 0.1s;
+}
+
+.app[data-dark-mode="true"] .toggleButton .toggle > div {
+  background-color: black;
 }
 
 .toggleButton[data-on="true"] .toggle > div {
@@ -182,6 +217,10 @@
   height: 10%;
   background-color: black;
   transition: transform 0.2s, opacity 0.2s;
+}
+
+.app[data-dark-mode="true"] .hamburgerMenu > div {
+  background-color: white;
 }
 
 .hamburgerMenu > div:nth-child(1) {

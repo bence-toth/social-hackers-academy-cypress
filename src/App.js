@@ -23,7 +23,6 @@ const getAverageMoodDuringPastWeek = ({ checkIns, averageAfter }) => {
   const checkInsDuringPastWeek = checkIns
     .filter(({ time }) => time >= aWeekAgo)
     .map(({ value }) => value);
-  console.log(checkInsDuringPastWeek);
   const averageCheckInDuringPastWeek =
     checkInsDuringPastWeek.reduce(
       (accumulator, current) => accumulator + current,
