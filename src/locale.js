@@ -1,4 +1,5 @@
 const getMood = (mood) => {
+  // eslint-disable-next-line default-case
   switch (mood) {
     case 1:
       return "awful";
@@ -10,8 +11,6 @@ const getMood = (mood) => {
       return "good";
     case 5:
       return "awesome";
-    default:
-      return "";
   }
 };
 

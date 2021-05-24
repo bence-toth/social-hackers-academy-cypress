@@ -51,12 +51,26 @@ test("calls onAddCheckIn with correct value for awesome", () => {
   expect(onAddCheckIn).toBeCalledWith(5);
 });
 
-test("calls onToggleCheckIns when toggle button is clicked", () => {
+test("calls onToggleCheckIns when show button is clicked", () => {
   const onToggleCheckIns = jest.fn();
-  render(<CheckIn onToggleCheckIns={onToggleCheckIns} />);
+  render(
+    <CheckIn onToggleCheckIns={onToggleCheckIns} areCheckInsVisible={false} />
+  );
 
   const toggleCheckInsButton = screen.getByRole("button", {
     name: /show previous check-ins/i,
+  });
+  toggleCheckInsButton.click();
+
+  expect(onToggleCheckIns).toBeCalled();
+});
+
+test("calls onToggleCheckIns when hide button is clicked", () => {
+  const onToggleCheckIns = jest.fn();
+  render(<CheckIn onToggleCheckIns={onToggleCheckIns} areCheckInsVisible />);
+
+  const toggleCheckInsButton = screen.getByRole("button", {
+    name: /hide previous check-ins/i,
   });
   toggleCheckInsButton.click();
 
