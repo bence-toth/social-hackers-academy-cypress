@@ -14,9 +14,23 @@ const CheckIn = ({ onAddCheckIn, areCheckInsVisible, onToggleCheckIns }) => (
       <CheckInButton mood={4} emoji="😊" onClick={() => onAddCheckIn(4)} />
       <CheckInButton mood={5} emoji="🤩" onClick={() => onAddCheckIn(5)} />
     </div>
-    <button className="toggleCheckIns" onClick={onToggleCheckIns}>
-      {areCheckInsVisible ? locale.hideCheckIns() : locale.showCheckIns()}
-    </button>
+    {areCheckInsVisible ? (
+      <button
+        data-test-id="hideCheckIns"
+        className="toggleCheckIns"
+        onClick={onToggleCheckIns}
+      >
+        {locale.hideCheckIns()}
+      </button>
+    ) : (
+      <button
+        data-test-id="showCheckIns"
+        className="toggleCheckIns"
+        onClick={onToggleCheckIns}
+      >
+        {locale.showCheckIns()}
+      </button>
+    )}
   </div>
 );
 

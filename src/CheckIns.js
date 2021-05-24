@@ -7,12 +7,21 @@ import locale from "./locale";
 import "./CheckIns.css";
 
 const CheckIns = ({ checkIns }) => (
-  <div className="checkIns">
-    {checkIns.length === 0 && <p>{locale.noCheckInsYet()}</p>}
+  <div data-test-id="checkIns" className="checkIns">
+    {checkIns.length === 0 && (
+      <p data-test-id="noCheckIns">{locale.noCheckInsYet()}</p>
+    )}
     {checkIns.length > 0 && (
       <>
         {hasCheckInsInThePastWeek({ checkIns, now: Date.now() }) && (
-          <p className="averageMoodIndicator">
+          <p
+            data-test-id="averageMood"
+            data-test-value={getAverageMoodDuringPastWeek({
+              checkIns,
+              now: Date.now(),
+            })}
+            className="averageMoodIndicator"
+          >
             {locale.averageMood(
               getAverageMoodDuringPastWeek({
                 checkIns,
@@ -23,7 +32,12 @@ const CheckIns = ({ checkIns }) => (
         )}
         <ul className="checkInsList">
           {checkIns.map(({ time, mood }) => (
-            <li key={time} className="checkInItem">
+            <li
+              key={time}
+              data-test-id="checkInListItem"
+              data-test-value={mood}
+              className="checkInItem"
+            >
               <span className="date">{locale.formattedDate(time)}</span>
               <span className="mood">{locale.mood(mood)}</span>
             </li>

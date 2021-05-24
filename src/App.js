@@ -15,6 +15,8 @@ const App = () => {
   return (
     <div
       className="app"
+      data-test-id="app"
+      data-test-dark-mode={isDarkModeOn}
       data-check-ins-open={areCheckInsVisible}
       data-dark-mode={isDarkModeOn}
     >
