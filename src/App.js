@@ -5,6 +5,7 @@ import CheckIn from "./CheckIn";
 import CheckIns from "./CheckIns";
 import Settings from "./Settings";
 
+// Adding meaningless comment
 import "./App.css";
 
 const App = () => {
