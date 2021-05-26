@@ -4,6 +4,7 @@ import useCheckIns from "./useCheckIns";
 import CheckIn from "./CheckIn";
 import CheckIns from "./CheckIns";
 import Settings from "./Settings";
+import Notifications from "./Notifications";
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ const App = () => {
         isDarkModeOn={isDarkModeOn}
         onToggleDarkMode={onToggleDarkMode}
       />
+      <Notifications checkIns={checkIns} />
     </div>
   );
 };

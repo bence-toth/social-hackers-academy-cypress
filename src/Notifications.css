@@ -1,0 +1,20 @@
+.notifications {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 320px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.notification {
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 5px;
+  padding: 8px;
+  margin-top: 10px;
+  background-color: hsl(0, 0%, 95%);
+  font-size: 14px;
+}
