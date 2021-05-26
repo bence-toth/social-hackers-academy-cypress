@@ -1,3 +1,5 @@
+import locale from "./locale";
+
 import "./Notifications.css";
 
 const Notifications = ({ checkIns }) => {
@@ -7,8 +9,8 @@ const Notifications = ({ checkIns }) => {
   return (
     <div className="notifications">
       {relevantCheckIns.map((notification) => (
-        <div class="notification">
-          Your mood ({notification.mood}) was registered.
+        <div className="notification" key={notification.time}>
+          Your {locale.mood(notification.mood)} mood was registered.
         </div>
       ))}
     </div>
