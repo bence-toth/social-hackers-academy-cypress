@@ -6,5 +6,11 @@ context("Settings", () => {
     cy.visit("http://localhost:3000/");
   });
 
-  it("Dark mode can be turned on and off", () => {});
+  it("Dark mode can be turned on and off", () => {
+    cy.assertDarkModeOn(false)
+      .toggleDarkMode()
+      .assertDarkModeOn(true)
+      .toggleDarkMode()
+      .assertDarkModeOn(false);
+  });
 });
